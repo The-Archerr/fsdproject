@@ -1,0 +1,239 @@
+/* dashboard-styles.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Navbar Styles */
+.navbar {
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 212, 255, 0.3);
+    /* Slightly more opaque cyan */
+    border-bottom: 2px solid #00d4ff;
+    padding: 15px 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    backdrop-filter: blur(8px);
+    /* Enhanced frosted glass */
+}
+
+.logo {
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Main Content Styles */
+main {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    flex: 1; /* Changed: Allow main to grow */
+}
+
+/* Intro Container */
+.intro-container {
+    background: rgba(0, 212, 255, 0.15);
+    /* Slightly more visible container */
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    max-width: 700px;
+    width: 100%;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.intro {
+    text-align: left;
+    /* Semi-left alignment */
+    padding: 0 20px;
+}
+
+.intro h1 {
+    color: #ffffff;
+    font-size: 40px;
+    margin-bottom: 15px;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+    display: inline-block;
+    width: 100%;
+    max-width: 500px;
+    /* Constrain for semi-left look */
+}
+
+.intro h2 {
+    color: #ffffff;
+    font-size: 26px;
+    margin: 25px 0 15px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.intro p {
+    color: #e0e0e0;
+    font-size: 16px;
+    line-height: 1.8;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.intro ul,
+.intro ol {
+    color: #e0e0e0;
+    font-size: 16px;
+    line-height: 1.8;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    margin: 15px 0;
+    padding-left: 35px;
+}
+
+.intro li {
+    margin-bottom: 12px;
+}
+
+.intro strong {
+    color: #ffffff;
+}
+
+/* Button Container */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    width: 100%;
+    max-width: 700px;
+}
+
+.button-row {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    flex-wrap: wrap;
+    /* Allow wrapping for smaller screens */
+}
+
+.main-button {
+    display: inline-block;
+    padding: 14px 30px;
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.4), rgba(0, 150, 255, 0.4));
+    /* Gradient for depth */
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    border: 2px solid #00d4ff;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    text-align: center;
+    flex: 1;
+    min-width: 140px;
+    max-width: 160px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.main-button:hover {
+    background: linear-gradient(135deg, #00d4ff, #0096ff);
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 212, 255, 0.6);
+}
+
+/* Footer Styles */
+.footer {
+    background: rgba(0, 212, 255, 0.3);
+    border-top: 2px solid #00d4ff;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.4);
+    flex-shrink: 0; /* Changed: Prevent footer from shrinking */
+}
+
+.footer p {
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px 20px;
+    }
+
+    .logo {
+        font-size: 26px;
+    }
+
+    main {
+        padding: 20px 15px;
+    }
+
+    .intro-container {
+        padding: 20px;
+    }
+
+    .intro h1 {
+        font-size: 32px;
+        max-width: 400px;
+    }
+
+    .intro h2 {
+        font-size: 22px;
+    }
+
+    .intro p,
+    .intro ul,
+    .intro ol {
+        font-size: 14px;
+    }
+
+    .button-row {
+        gap: 10px;
+    }
+
+    .main-button {
+        min-width: 120px;
+        max-width: 140px;
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+
+    .footer p {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .intro {
+        padding: 0 10px;
+    }
+
+    .intro h1 {
+        font-size: 28px;
+        max-width: 100%;
+    }
+
+    .button-row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main-button {
+        min-width: 100%;
+        max-width: 100%;
+        padding: 12px;
+    }
+}

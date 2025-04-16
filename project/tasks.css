@@ -1,0 +1,237 @@
+/* tasks.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f0f8ff; /* Light blue-ish background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    color: #333; /* Dark text */
+}
+
+.container {
+    display: flex;
+    gap: 20px; /* Adjusted gap */
+    max-width: 700px; /* Match intro container width */
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.task-manager,
+.pomodoro {
+    background: rgba(0, 212, 255, 0.15); /* Match intro container */
+    padding: 25px;
+    border-radius: 12px; /* Match intro container */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Match intro container */
+    width: 100%;
+    max-width: 100%; /* Allow full width within container */
+    margin-bottom: 20px; /* Space between sections */
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #ffffff;
+    text-align: center;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Task Manager Styles */
+.task-input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.task-input input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #00d4ff; /* Cyan border */
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #ffffff;
+    color: #333;
+}
+
+.task-input button {
+    padding: 10px 20px;
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.4), rgba(0, 150, 255, 0.4)); /* Cyan gradient */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+    font-weight: bold;
+}
+
+.task-input button:hover {
+    background: linear-gradient(135deg, #00d4ff, #0096ff);
+    box-shadow: 0 3px 6px rgba(0, 212, 255, 0.6);
+    transform: translateY(-2px);
+}
+
+#taskList {
+    list-style: none;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    background: #ffffff;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    transition: background 0.2s, box-shadow 0.2s;
+    border: 1px solid #00d4ff; /* Cyan border */
+}
+
+.task-item.completed {
+    background: rgba(0, 150, 255, 0.1); /* Light cyan for completed */
+    text-decoration: line-through;
+    color: #777;
+}
+
+.task-item:hover {
+    box-shadow: 0 2px 5px rgba(0, 212, 255, 0.4);
+}
+
+.task-item input[type="checkbox"] {
+    margin-right: 10px;
+    appearance: auto; /* Restore default checkbox */
+}
+
+.task-item span {
+    flex: 1;
+    font-size: 16px;
+}
+
+.task-item button {
+    background: #ff8a80; /* Light red */
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+    font-size: 0.9rem;
+}
+
+.task-item button:hover {
+    background: #f44336; /* Darker red */
+    box-shadow: 0 2px 5px rgba(244, 67, 54, 0.6);
+    transform: translateY(-1px);
+}
+
+/* Pomodoro Timer Styles */
+.timer-display {
+    font-size: 48px;
+    text-align: center;
+    margin: 20px 0;
+    color: #00d4ff; /* Cyan */
+    font-weight: bold;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.timer-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.timer-controls button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s, transform 0.3s;
+    font-weight: bold;
+}
+
+.timer-controls button:nth-child(1) {
+    background: linear-gradient(135deg, #80cbc4, #4db6ac); /* Teal gradient */
+    color: white;
+}
+
+.timer-controls button:nth-child(1):hover {
+    background: linear-gradient(135deg, #4db6ac, #009688);
+    box-shadow: 0 3px 6px rgba(0, 150, 136, 0.6);
+    transform: translateY(-2px);
+}
+
+.timer-controls button:nth-child(2) {
+    background: linear-gradient(135deg, #ffb74d, #ffa726); /* Orange gradient */
+    color: white;
+}
+
+.timer-controls button:nth-child(2):hover {
+    background: linear-gradient(135deg, #ffa726, #f57c00);
+    box-shadow: 0 3px 6px rgba(255, 167, 38, 0.6);
+    transform: translateY(-2px);
+}
+
+.timer-controls button:nth-child(3) {
+    background: linear-gradient(135deg, #ff8a80, #e57373); /* Red gradient */
+    color: white;
+}
+
+.timer-controls button:nth-child(3):hover {
+    background: linear-gradient(135deg, #e57373, #d32f2f);
+    box-shadow: 0 3px 6px rgba(211, 47, 47, 0.6);
+    transform: translateY(-2px);
+}
+
+.session-info {
+    text-align: center;
+    font-size: 16px;
+    color: #555;
+}
+
+.session-info p {
+    margin: 5px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .task-manager,
+    .pomodoro {
+        max-width: 100%;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    .timer-display {
+        font-size: 40px;
+    }
+
+    .task-input input,
+    .task-input button,
+    .timer-controls button,
+    .task-item span,
+    .task-item button,
+    .session-info {
+        font-size: 14px;
+    }
+
+    .task-input button,
+    .timer-controls button {
+        padding: 8px 15px;
+    }
+}

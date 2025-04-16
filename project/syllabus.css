@@ -1,0 +1,171 @@
+/* syllabus.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f0f8ff; /* Light blue-ish background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    color: #333; /* Dark text */
+}
+
+.container {
+    max-width: 700px; /* Match intro container width */
+    width: 100%;
+    background: rgba(0, 212, 255, 0.15); /* Match intro container */
+    padding: 25px;
+    border-radius: 12px; /* Match intro container */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Match intro container */
+}
+
+h1 {
+    font-size: 32px;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 30px;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+.syllabus {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Reduced gap */
+}
+
+.course {
+    border: 1px solid #00d4ff; /* Cyan border */
+    border-radius: 8px;
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+    background-color: #ffffff; /* White course background */
+}
+
+.course:hover {
+    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.4); /* Cyan hover shadow */
+}
+
+.course-title {
+    font-size: 20px;
+    color: #ffffff;
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.4), rgba(0, 150, 255, 0.4)); /* Cyan gradient */
+    padding: 12px 15px;
+    cursor: pointer;
+    margin: 0;
+    position: relative;
+    transition: background 0.3s;
+    font-weight: bold;
+    border-bottom: 1px solid #0096ff; /* Darker cyan border */
+}
+
+.course-title:hover {
+    background: linear-gradient(135deg, #00d4ff, #0096ff); /* Brighter cyan hover */
+}
+
+.course-title::after {
+    content: '▼';
+    position: absolute;
+    right: 15px;
+    transition: transform 0.3s;
+    font-size: 1rem;
+}
+
+.course-title.active::after {
+    transform: rotate(180deg);
+}
+
+.course-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    padding: 15px;
+    background-color: rgba(0, 150, 255, 0.05); /* Light cyan content background */
+}
+
+.course-content.active {
+    max-height: 1000px; /* Adjust based on content */
+    padding: 15px;
+}
+
+.unit {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #00d4ff; /* Cyan separator */
+    padding-bottom: 10px;
+}
+
+.unit:last-child {
+    border-bottom: none;
+}
+
+.unit-title {
+    font-size: 16px;
+    color: #0096ff; /* Darker cyan */
+    cursor: pointer;
+    padding: 8px 0;
+    position: relative;
+    font-weight: bold;
+}
+
+.unit-title::before {
+    content: '▶';
+    margin-right: 8px;
+    color: #0096ff;
+    transition: transform 0.3s;
+    font-size: 0.9rem;
+}
+
+.unit-title.active::before {
+    transform: rotate(90deg);
+}
+
+.unit-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    font-size: 14px;
+    color: #333;
+    line-height: 1.6;
+    padding-left: 20px;
+}
+
+.unit-content.active {
+    max-height: 500px; /* Adjust based on content */
+    padding: 10px 0 10px 20px;
+}
+
+.unit-content p {
+    margin-bottom: 8px;
+}
+
+.unit-content strong {
+    color: #0096ff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .course-title {
+        font-size: 18px;
+    }
+
+    .unit-title {
+        font-size: 14px;
+    }
+
+    .unit-content {
+        font-size: 12px;
+    }
+}

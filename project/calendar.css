@@ -1,0 +1,486 @@
+/* calendar.css */
+:root {
+    --primary-clr: #00d4ff; /* Cyan as primary */
+    --light-bg: #f0f8ff; /* Light blue-ish background */
+    --dark-bg: #1e1e2f;
+    --light-card: #ffffff;
+    --dark-card: #2a2a3d;
+    --light-text: #333; /* Darker text for light mode */
+    --dark-text: #e0e0e0;
+    --event-exam: #ff8a80; /* Light red */
+    --event-lab: #80cbc4; /* Light teal */
+    --event-cultural: #ffb74d; /* Light orange */
+    --event-other: #9fa8da; /* Light purple */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif; /* Using Arial to match dashboard */
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    transition: background-color 0.3s, color 0.3s;
+    background-color: var(--light-bg); /* Default to light background */
+    color: var(--light-text); /* Default to light text color */
+}
+
+body.dark-mode {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+}
+
+.container {
+    width: 100%;
+    max-width: 700px; /* Match intro container width */
+    min-height: auto; /* Adjust height */
+    display: flex;
+    flex-direction: column; /* Stack left and right */
+    border-radius: 12px; /* Match intro container */
+    background-color: rgba(0, 212, 255, 0.15); /* Match intro container */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Match intro container */
+    position: relative;
+}
+
+.left {
+    width: 100%; /* Full width when stacked */
+    padding: 20px;
+    margin-bottom: 20px; /* Space between left and right */
+}
+
+.right {
+    width: 100%; /* Full width when stacked */
+    padding: 20px;
+    position: relative;
+}
+
+.calendar {
+    width: 100%;
+    height: auto; /* Adjust height */
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px; /* Match intro container */
+    background-color: var(--light-card);
+    transition: background-color 0.3s;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+body.dark-mode .calendar {
+    background-color: var(--dark-card);
+}
+
+.month {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    height: auto; /* Adjust height */
+    font-size: 1.2rem;
+    font-weight: bold;
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.4), rgba(0, 150, 255, 0.4)); /* Cyan gradient */
+    color: #ffffff;
+    border-radius: 8px 8px 0 0;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.month i {
+    cursor: pointer;
+    font-size: 1rem;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.month i:hover {
+    opacity: 1;
+}
+
+.weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    padding: 0;
+    height: auto; /* Adjust height */
+    font-weight: bold;
+    background-color: rgba(0, 150, 255, 0.1); /* Light cyan */
+    color: #333;
+    border-bottom: 1px solid #00d4ff;
+}
+
+.weekdays div {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    padding: 0;
+    border: 1px solid rgba(0, 150, 255, 0.1); /* Light cyan border */
+    gap: 0.1rem;
+}
+
+.days .day {
+    height: 60px; /* Adjusted height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 0.9rem;
+    position: relative;
+    border-right: 1px solid rgba(0, 150, 255, 0.05);
+    border-bottom: 1px solid rgba(0, 150, 255, 0.05);
+    transition: background-color 0.3s;
+    color: #555;
+}
+
+.days .day:nth-child(7n) {
+    border-right: none;
+}
+
+.days .day:nth-child(n+36) {
+    border-bottom: none;
+}
+
+.days .prev-date,
+.days .next-date {
+    color: #999;
+    background-color: #f9f9f9;
+}
+
+.days .today {
+    background-color: var(--primary-clr);
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+.days .active {
+    background-color: rgba(0, 150, 255, 0.3);
+    color: #ffffff;
+    border-radius: 8px;
+}
+
+.days .event {
+    position: relative;
+}
+
+.days .event::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    transform: translateX(-50%);
+}
+
+.days .event-exam::after { background-color: var(--event-exam); }
+.days .event-lab::after { background-color: var(--event-lab); }
+.days .event-cultural::after { background-color: var(--event-cultural); }
+.days .event-other::after { background-color: var(--event-other); }
+
+.days .day:hover {
+    background-color: rgba(0, 150, 255, 0.05);
+}
+
+.goto-today {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+    margin-top: 15px;
+    background-color: rgba(0, 150, 255, 0.1);
+    border-radius: 8px;
+}
+
+.goto {
+    display: flex;
+    border: 1px solid var(--primary-clr);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.goto input {
+    width: 80px;
+    padding: 5px;
+    border: none;
+    outline: none;
+    color: var(--primary-clr);
+    background-color: #fff;
+    text-align: center;
+}
+
+.goto-btn, .today-btn {
+    padding: 5px 10px;
+    border: none;
+    background-color: var(--primary-clr);
+    color: #fff;
+    cursor: pointer;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.8rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.goto-btn:hover, .today-btn:hover {
+    background-color: #0096ff;
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    background-color: rgba(0, 150, 255, 0.1);
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: #333;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode .theme-toggle {
+    color: #e0e0e0;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.theme-toggle i {
+    font-size: 1rem;
+}
+
+.today-date {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    margin: 15px 0;
+    background-color: rgba(0, 150, 255, 0.1);
+    border-radius: 8px;
+}
+
+.event-day {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-clr);
+}
+
+.event-date {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+.coming-up {
+    margin-bottom: 20px;
+}
+
+.coming-up h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    padding-left: 15px;
+    color: #333;
+    font-weight: bold;
+}
+
+.coming-up-events, .events {
+    max-height: 200px;
+    overflow-y: auto;
+    padding: 0 15px;
+    background-color: rgba(0, 150, 255, 0.05);
+    border-radius: 8px;
+}
+
+.event {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.event-exam { background-color: rgba(var(--event-exam), 0.2); }
+.event-lab { background-color: rgba(var(--event-lab), 0.2); }
+.event-cultural { background-color: rgba(var(--event-cultural), 0.2); }
+.event-other { background-color: rgba(var(--event-other), 0.2); }
+
+.event:hover {
+    background-color: rgba(0, 150, 255, 0.1);
+}
+
+.event .title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.event .event-time, .event .event-details {
+    font-size: 0.8rem;
+    color: #777;
+    margin-left: 18px;
+}
+
+.no-event {
+    text-align: center;
+    color: #777;
+    padding: 15px;
+}
+
+.add-event {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: var(--primary-clr);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    font-size: 1.2rem;
+}
+
+.add-event:hover {
+    background-color: #0096ff;
+}
+
+.add-event-wrapper {
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    width: 90%;
+    max-height: 0;
+    overflow: hidden;
+    background-color: var(--light-card);
+    border-radius: 12px;
+    transform: translateX(-50%);
+    transition: max-height 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+body.dark-mode .add-event-wrapper {
+    background-color: var(--dark-card);
+}
+
+.add-event-wrapper.active {
+    max-height: 400px;
+}
+
+.add-event-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+    background-color: rgba(0, 150, 255, 0.05);
+    border-radius: 8px 8px 0 0;
+}
+
+.add-event-header .title {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.add-event-header .close {
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #777;
+}
+
+.add-event-header .close:hover {
+    color: var(--primary-clr);
+}
+
+.add-event-body {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.add-event-input {
+    width: 100%;
+}
+
+.add-event-input input,
+.add-event-input select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    font-size: 0.9rem;
+    color: var(--light-text);
+    background-color: #fff;
+}
+
+body.dark-mode .add-event-input input,
+body.dark-mode .add-event-input select {
+    color: var(--dark-text);
+    background-color: #333;
+    border-color: #555;
+}
+
+.add-event-input input::placeholder,
+.add-event-input select::placeholder {
+    color: #999;
+}
+
+.add-event-input input:focus,
+.add-event-input select:focus {
+    border-color: var(--primary-clr);
+    box-shadow: 0 0 0 2px rgba(0, 212, 255, 0.3);
+}
+
+.add-event-footer {
+    padding: 15px;
+    text-align: center;
+}
+
+.add-event-btn {
+    padding: 8px 15px;
+    background-color: var(--primary-clr);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.add-event-btn:hover {
+    background-color: #0096ff;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    .left, .right {
+        width: 100%;
+    }
+    .add-event-wrapper {
+        width: 95%;
+    }
+}

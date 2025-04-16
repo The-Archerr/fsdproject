@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CollegeConnect</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="bg.css">
+    <style>
+        /* Sticky Footer Layout */
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .wrapper {
+            flex: 1; /* Grow to fill available space */
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1; /* Grow to fill remaining space */
+        }
+
+        .footer {
+            flex-shrink: 0; /* Don't shrink */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg"></div>
+    <div class="star-field">
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+    </div>
+
+    <div class="wrapper">
+        <nav class="navbar">
+            <div class="logo">CollegeConnect</div>
+        </nav>
+
+        <main>
+            <div class="intro-container">
+                <div class="intro">
+                    <h1>CollegeConnect</h1>
+                    <p>Welcome to CollegeConnect, your one-stop platform for student success. Access course syllabi, stay
+                        updated with event calendars, boost productivity with tools like task managers and Pomodoro timers,
+                        test your knowledge with AI-powered quizzes, and get in touch with us for support.</p>
+                </div>
+            </div>
+            <div class="button-container">
+                <div class="button-row">
+                    <a href="about.html" class="main-button">About</a>
+                    <a href="../Syllabus/index.html" class="main-button">Syllabus</a>
+                    <a href="../College_Calendar/index.html" class="main-button">Calendar</a>
+                </div>
+                <div class="button-row">
+                    <a href="../Tasks_Pomodoro/index.html" class="main-button">Productivity</a>
+                    <a href="../AI_Quiz/index.html" class="main-button">AI Quiz</a>
+                    <a href="mailto:ushasreepoola369@gmail.com" class="main-button">Contact Us</a>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>© 2025 CollegeConnect. All Rights Reserved.</p>
+        </footer>
+    </div>
+</body>
+
+</html>

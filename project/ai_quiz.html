@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Quiz Generator - CollegeConnect</title>
+    <link rel="stylesheet" href="aistyles.css">
+    <link rel="stylesheet" href="bg.css">
+    <style>
+        /* Sticky Footer Layout */
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .wrapper {
+            flex: 1; /* Grow to fill available space */
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1; /* Grow to fill remaining space */
+        }
+
+        .footer {
+            flex-shrink: 0; /* Don't shrink */
+        }
+
+        .container {
+            max-width: 700px; /* Consistent with intro-container */
+            width: 100%;
+            padding: 20px; /* Add some padding around the content */
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg"></div>
+    <div class="star-field">
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+    </div>
+
+    <div class="wrapper">
+        <nav class="navbar">
+            <div class="logo">CollegeConnect</div>
+        </nav>
+
+        <main>
+            <div class="container">
+                <header class="header">
+                    <h1 class="title">AI Quiz Generator</h1>
+                </header>
+
+                <div class="controls">
+                    <label for="numQuestions">Number of Questions:</label>
+                    <input type="number" id="numQuestions" min="1" max="10" value="5">
+                </div>
+
+                <div id="syllabus" class="syllabus"></div>
+                <div id="quiz-container" class="quiz-container"></div>
+            </div>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <p>© 2025 CollegeConnect. All Rights Reserved.</p>
+    </footer>
+
+    <script src="aiscript.js"></script>
+</body>
+
+</html>
